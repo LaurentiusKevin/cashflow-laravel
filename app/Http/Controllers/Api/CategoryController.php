@@ -43,6 +43,17 @@ class CategoryController extends Controller
         return response()->json($data);
     }
 
+    public function parent(Request $request): JsonResponse
+    {
+        $data = Category::query()
+            ->whereNull('parent_id')
+            ->get();
+
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
     public function child(Request $request): JsonResponse
     {
         $parent_id = $request->get('parent_id');

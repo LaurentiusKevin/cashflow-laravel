@@ -25,6 +25,7 @@ Route::group([
 //    'middleware' => ['auth:sanctum']
 ], function () {
     Route::get('/', [CategoryController::class,'data']);
+    Route::get('parent', [CategoryController::class,'parent']);
     Route::post('/', [CategoryController::class,'store'])->name('store');
     Route::delete('/', [CategoryController::class,'delete'])->name('delete');
 });
